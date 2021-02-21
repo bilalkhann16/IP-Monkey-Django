@@ -5,6 +5,7 @@ import requests
 import json
 import socket
 from urllib.request import urlopen
+from ipware import get_client_ip
 
 # key: AKIAIDOF3JTWMWSD3SEQ 
 # secret: 2/lxtJ4vBOo6EN9hH5X83QXbn1t1jqmqn9oP1uFC 
@@ -13,13 +14,9 @@ from urllib.request import urlopen
 # Create your views here.
 def myView(request):
 
-    hostname = socket.gethostname()
-## getting the IP address using socket.gethostbyname() method
-    IP = socket.gethostbyname(hostname)
-## printing the hostname and ip_address
-    print(f"Hostname: {hostname}")
-    #print(f"IP Address: {ip_address}")
-
+   
+    IP = get_client_ip(request)
+    print ("IP", IP)
 
     url = 'http://ipinfo.io/json'
     response = urlopen(url)
