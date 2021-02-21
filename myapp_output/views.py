@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import re
+import requests
 import json
+import socket
 from urllib.request import urlopen
 
 # key: AKIAIDOF3JTWMWSD3SEQ 
@@ -10,11 +12,21 @@ from urllib.request import urlopen
 
 # Create your views here.
 def myView(request):
+
+    hostname = socket.gethostname()
+## getting the IP address using socket.gethostbyname() method
+    IP = socket.gethostbyname(hostname)
+## printing the hostname and ip_address
+    print(f"Hostname: {hostname}")
+    #print(f"IP Address: {ip_address}")
+
+
     url = 'http://ipinfo.io/json'
     response = urlopen(url)
+    #response = requests.get(url)
     data = json.load(response)
 
-    IP=data['ip']
+    #IP=data['ip']
     org=data['org']
     org= org[7:]
     city = data['city']

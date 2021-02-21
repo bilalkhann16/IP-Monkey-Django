@@ -28,7 +28,7 @@ SECRET_KEY = 't%m3py@=6n%$e)n7e#-(6$1y2v5yf%(6fue)1rlmt4s(wx64an'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ip-monkey.herokuapp.com']
+ALLOWED_HOSTS = ['ip-monkey.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
